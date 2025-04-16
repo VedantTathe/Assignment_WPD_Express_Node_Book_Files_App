@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploaded files (if you don't want them tracked by Git)
+uploads/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Build directory (if any)
+dist/
+build/
+
+# Coverage directory (for testing tools)
+coverage/
+
+# Optional: Ignore PDF submissions or personal docs
+*.pdf
+ExamSeatNum_P#PS#*
