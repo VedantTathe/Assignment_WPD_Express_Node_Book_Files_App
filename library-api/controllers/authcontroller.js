@@ -11,14 +11,7 @@ exports.register = async (req, res) => {
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
-    }
-
-    // Create new user
-    const user = new User({ username, password });
-    await user.save();
-
-    // Return the user with a success message
-    res.status(201).json({ message: 'User registered successfully', user });
+  
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
@@ -28,16 +21,7 @@ exports.register = async (req, res) => {
 // Login User
 exports.login = async (req, res) => {
   try {
-    const { username, password } = req.body;
-
-    // Find the user by username
-    const user = await User.findOne({ username });
-    if (!user) {
-      return res.status(400).json({ message: 'User not found' });
-    }
-
-    // Compare the password with the stored hash
-    const valid = await bcrypt.compare(password, user.password);
+    
     if (!valid) {
       return res.status(401).json({ message: 'Invalid password' });
     }
