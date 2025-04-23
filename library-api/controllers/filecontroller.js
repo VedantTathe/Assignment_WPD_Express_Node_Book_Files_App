@@ -1,6 +1,11 @@
 const UploadedFile = require('../models/UploadedFile');
 const fs = require('fs');
 
+exports.uploadFile = async (req, res) => {
+  const file = new UploadedFile(req.file);
+  await file.save();
+  res.status(201).json(file);
+};
 
 exports.getFiles = async (req, res) => {
   const files = await UploadedFile.find();
